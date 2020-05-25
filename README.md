@@ -13,7 +13,7 @@ VS版本：VS2017（用于编译LibTorch）
 下载LibTorch_VS2017 [百度网盘](https://pan.baidu.com/s/1TWAJuqsPqztPGbDjxnuh_A) 密码：t8is  
 下载OpenCV420 [百度网盘](https://pan.baidu.com/s/132D2UB7q3WXC65kHxnSv4A) 密码：h7m1
 # 训练数据
-以kaggle猫狗大战数据集为例，数据格式如下：  
+以[kaggle猫狗大战数据集](https://www.kaggle.com/c/dogs-vs-cats)为例，数据格式如下：  
 1、训练数据路径：data/train/cat/*.jpg，data/train/dog/*.jpg  
 2、验证数据路径：data/val/cat/*.jpg，data/val/dog/*.jpg
 # 训练代码
