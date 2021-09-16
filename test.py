@@ -7,6 +7,14 @@ from torchvision import transforms
 from PIL import Image
 import os
 
+# device
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+# load model
+model = torch.load('model.pkl')
+model = model.to(device)
+model.eval()
+
 classes = ['cat','dog']
 
 test_path = "data/val/"
@@ -29,15 +37,10 @@ for test_dir in os.listdir(test_path):
                 ])
             image_transformed = transform(image)
             image_transformed = image_transformed.unsqueeze(0)
-                
-            device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
             
-            model = torch.load('model.pkl')
-            model = model.to(device)
-            
-            model.eval()
-            
+            # forward
             output = model(image_transformed.to(device))
+            
             output = F.softmax(output, dim=1)
             predict_value, predict_idx = torch.max(output, 1)
             
